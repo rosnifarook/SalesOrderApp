@@ -1,18 +1,11 @@
-import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import Button from '../components/Button';
 import OrdersTable from '../components/OrdersTable';
-import { fetchOrders } from '../redux/slices/salesOrdersSlice';
+import { useOrders } from '../hooks/useOrders';
 
 const HomePage = () => {
-  const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { orders, status } = useSelector((state) => state.salesOrders);
-
-  useEffect(() => {
-    dispatch(fetchOrders());
-  }, [dispatch]);
+  const { orders, status } = useOrders();
 
   const handleAddNew = () => {
     navigate('/sales-order');

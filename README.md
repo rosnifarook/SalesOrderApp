@@ -21,12 +21,28 @@ A full-stack Sales Order management web application built with **.NET Core Web A
 
 ```
 SalesOrderApp/
-├── SalesOrderApp.API/           # API Layer (Controllers, DTOs routing)
-├── SalesOrderApp.Application/   # Business Logic (Services, Interfaces, DTOs)
-├── SalesOrderApp.Domain/        # Domain Entities
-├── SalesOrderApp.Infrastructure/# Data Access (EF Core, Repositories)
-├── Database/                    # SQL Server database script
-└── client/                      # React frontend
+├── API/                         # API Layer
+│   ├── Controllers/
+│   └── Models/                  # DTOs
+├── Application/                 # Business Logic Layer
+│   ├── Interfaces/
+│   └── Services/
+├── Domain/                        # Domain Layer
+│   └── Entities/
+├── Infrastructure/                # Data Access Layer
+│   ├── Data/
+│   └── Repositories/
+├── Database/                      # SQL Server database script
+└── client/                        # React frontend
+    └── src/
+        ├── components/
+        ├── pages/
+        ├── redux/
+        │   ├── slices/
+        │   └── store.js
+        ├── services/
+        ├── hooks/
+        └── utils/
 ```
 
 ## Prerequisites
@@ -40,7 +56,7 @@ SalesOrderApp/
 ### Option 1: EF Core Migrations (Recommended)
 The API automatically applies migrations on startup.
 
-Update connection string in `SalesOrderApp.API/appsettings.json` if needed:
+Update connection string in `API/appsettings.json` if needed:
 
 ```json
 "DefaultConnection": "Server=(localdb)\\mssqllocaldb;Database=SalesOrderDb;Trusted_Connection=True;TrustServerCertificate=True;MultipleActiveResultSets=true"
@@ -54,7 +70,7 @@ Run `Database/SalesOrderDb.sql` in SQL Server Management Studio.
 ### 1. Start the Backend API
 
 ```bash
-cd SalesOrderApp.API
+cd API
 dotnet run
 ```
 
@@ -107,26 +123,6 @@ Frontend runs at: `http://localhost:5173`
 - **Item** - Product/item master data
 - **SalesOrder** - Order header
 - **SalesOrderLine** - Order line items
-
-## GitHub Submission
-
-To submit for the interview:
-
-1. Initialize git repository:
-   ```bash
-   git init
-   git add .
-   git commit -m "Sales Order Application - SPIL Labs Interview Test"
-   ```
-
-2. Create a GitHub repository and push:
-   ```bash
-   git remote add origin https://github.com/YOUR_USERNAME/SalesOrderApp.git
-   git branch -M main
-   git push -u origin main
-   ```
-
-3. Share the GitHub repository link containing both the solution and database script.
 
 ## License
 

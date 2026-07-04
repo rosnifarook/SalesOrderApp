@@ -22,11 +22,13 @@ export const saveOrder = createAsyncThunk('salesOrders/save', async ({ id, data 
 
 const salesOrdersSlice = createSlice({
   name: 'salesOrders',
-  orders: [],
-  currentOrder: null,
-  status: 'idle',
-  saveStatus: 'idle',
-  error: null,
+  initialState: {
+    orders: [],
+    currentOrder: null,
+    status: 'idle',
+    saveStatus: 'idle',
+    error: null,
+  },
   reducers: {
     clearCurrentOrder: (state) => {
       state.currentOrder = null;

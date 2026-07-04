@@ -1,11 +1,23 @@
 using Microsoft.EntityFrameworkCore;
+using SalesOrderApp.API.Mapping;
+using SalesOrderApp.Application.Interfaces;
+using SalesOrderApp.Application.Services;
 using SalesOrderApp.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddControllers();
+builder.Services.AddControllers()
+    .AddJsonOptions(options =>
+    {
+        options.JsonSerializerOptions.PropertyNamingPolicy = System.Text.Json.JsonNamingPolicy.CamelCase;
+    });
 builder.Services.AddOpenApi();
 builder.Services.AddInfrastructure(builder.Configuration);
+
+builder.Services.AddScoped<IClientService, ClientService>();
+builder.Services.AddScoped<IItemService, ItemService>();
+builder.Services.AddScoped<ISalesOrderService, SalesOrderService>();
+builder.Services.AddAutoMapper(typeof(MappingProfile));
 
 builder.Services.AddCors(options =>
 {
@@ -31,7 +43,6 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseCors("AllowReactApp");
-// app.UseHttpsRedirection();
 app.UseAuthorization();
 app.MapControllers();
 

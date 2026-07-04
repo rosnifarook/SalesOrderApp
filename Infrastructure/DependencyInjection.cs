@@ -2,8 +2,6 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using SalesOrderApp.Application.Interfaces;
-using SalesOrderApp.Application.Mapping;
-using SalesOrderApp.Application.Services;
 using SalesOrderApp.Infrastructure.Data;
 using SalesOrderApp.Infrastructure.Repositories;
 
@@ -19,12 +17,6 @@ public static class DependencyInjection
         services.AddScoped<IClientRepository, ClientRepository>();
         services.AddScoped<IItemRepository, ItemRepository>();
         services.AddScoped<ISalesOrderRepository, SalesOrderRepository>();
-
-        services.AddScoped<IClientService, ClientService>();
-        services.AddScoped<IItemService, ItemService>();
-        services.AddScoped<ISalesOrderService, SalesOrderService>();
-
-        services.AddAutoMapper(typeof(MappingProfile));
 
         return services;
     }

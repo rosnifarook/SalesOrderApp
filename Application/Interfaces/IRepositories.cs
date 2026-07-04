@@ -1,4 +1,3 @@
-using SalesOrderApp.Application.DTOs;
 using SalesOrderApp.Domain.Entities;
 
 namespace SalesOrderApp.Application.Interfaces;
@@ -21,23 +20,4 @@ public interface ISalesOrderRepository
     Task<SalesOrder?> GetByIdAsync(int id);
     Task<SalesOrder> AddAsync(SalesOrder order);
     Task<SalesOrder> UpdateAsync(SalesOrder order);
-}
-
-public interface IClientService
-{
-    Task<IEnumerable<ClientDto>> GetAllClientsAsync();
-    Task<ClientDto?> GetClientByIdAsync(int id);
-}
-
-public interface IItemService
-{
-    Task<IEnumerable<ItemDto>> GetAllItemsAsync();
-}
-
-public interface ISalesOrderService
-{
-    Task<IEnumerable<SalesOrderListDto>> GetAllOrdersAsync();
-    Task<SalesOrderDto?> GetOrderByIdAsync(int id);
-    Task<SalesOrderDto> CreateOrderAsync(CreateSalesOrderDto dto);
-    Task<SalesOrderDto?> UpdateOrderAsync(int id, CreateSalesOrderDto dto);
 }

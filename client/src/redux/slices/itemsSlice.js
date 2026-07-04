@@ -8,9 +8,11 @@ export const fetchItems = createAsyncThunk('items/fetchAll', async () => {
 
 const itemsSlice = createSlice({
   name: 'items',
-  items: [],
-  status: 'idle',
-  error: null,
+  initialState: {
+    items: [],
+    status: 'idle',
+    error: null,
+  },
   reducers: {},
   extraReducers: (builder) => {
     builder

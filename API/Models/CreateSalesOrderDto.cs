@@ -1,4 +1,4 @@
-namespace SalesOrderApp.Application.DTOs;
+namespace SalesOrderApp.API.Models;
 
 public class CreateSalesOrderDto
 {

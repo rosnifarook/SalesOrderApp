@@ -1,6 +1,6 @@
 <Solution>
-  <Project Path="SalesOrderApp.API/SalesOrderApp.API.csproj" />
-  <Project Path="SalesOrderApp.Application/SalesOrderApp.Application.csproj" />
-  <Project Path="SalesOrderApp.Domain/SalesOrderApp.Domain.csproj" />
-  <Project Path="SalesOrderApp.Infrastructure/SalesOrderApp.Infrastructure.csproj" />
+  <Project Path="API/API.csproj" />
+  <Project Path="Application/Application.csproj" />
+  <Project Path="Domain/Domain.csproj" />
+  <Project Path="Infrastructure/Infrastructure.csproj" />
 </Solution>
